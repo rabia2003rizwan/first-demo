@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>To-Do List</title>
+    <style>
+       @media screen {
+        
+        body{
+            background-color:pink;
+            font-family: 'Franklin Gothic', Arial, sans-serif;
+        }
+    }
+        @media screen {
+            
+        .container{
+            width: 360px;
+            padding:100px;
+            text-align: center;
+            margin:auto;
+            background-color: rgb(9, 101, 71);
+            border-radius: 5px;
+            box-shadow: 0 13px 30px
+        }
+    }
+        input {
+            width:270px;
+            padding: 8px;
+            border:2px solid black;
+            outline: none;
+            font-size: 19px;
+        }
+        button{
+            width:60px;
+            height: 38px;
+            border-radius:2px;
+            background-color: #fff;
+            color: black;
+            font-size: 19px;
+            border:none;
+            outline: none;
+            cursor: pointer;
+        }
+        @media screen {
+            
+        .text ul{
+            position: relative;
+            background-color: #fff;
+            color: black;
+            font-size: 19px;
+            text-align:left;
+            padding: 7px;
+        }
+    }
+       @media screen {
+        
+        .text ul i{
+            position: absolute;
+            right:10px;
+            cursor: pointer;
+        }
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>To-Do List</h1>
+    <div class="inputs">
+        <input type="text" placeholder="Enter your task" id="inp">
+        <button onclick="Add()">Add</button>
+    </div>
+    <div class="text">
+
+    </div>
+
+    </div>
+    <script>
+        let inputs= document.getElementById("inp");
+        let text= document.querySelector(".text");
+        function Add()
+        {
+         if (inputs.value == ""){
+            alert("Please Enter Task");
+         }
+         else{
+            let new_item=document.createElement("ul");
+            new_item.innerHTML=`${inputs.value}<i class="fa-solid fa-trash"></i>`;
+            text.appendChild(new_item);
+            inputs.value="";
+            new_item.querySelector("i").addEventListener("click",remove);
+            function remove()
+            {
+                new_item.remove()
+            }
+         }
+        }
+    
+    </script>
+    
+</body>
+
+</html>
